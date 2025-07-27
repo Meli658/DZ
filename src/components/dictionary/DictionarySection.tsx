@@ -16,6 +16,8 @@ import {
   Download
 } from 'lucide-react';
 import { buttonHandlers } from '@/utils/buttonUtils';
+import { AddDictionaryTermForm } from '@/components/forms/AddDictionaryTermForm';
+import { EnrichDictionaryForm } from '@/components/forms/EnrichDictionaryForm';
 
 interface DictionaryEntry {
   id: number;
@@ -32,6 +34,8 @@ interface DictionaryEntry {
 export function DictionarySection() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('tous');
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [showEnrichForm, setShowEnrichForm] = useState(false);
 
   const dictionaryEntries: DictionaryEntry[] = [
     {
@@ -105,13 +109,23 @@ export function DictionarySection() {
             Définitions et explications des termes juridiques algériens
           </p>
         </div>
-        <Button 
-          className="gap-2 bg-blue-600 hover:bg-blue-700"
-          onClick={buttonHandlers.generic('Suggérer terme', 'Suggestion d\'un nouveau terme', 'Dictionnaire')}
-        >
-          <Plus className="w-4 h-4" />
-          Suggérer un terme
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            className="gap-2 bg-blue-600 hover:bg-blue-700"
+            onClick={() => setShowAddForm(true)}
+          >
+            <Plus className="w-4 h-4" />
+            Ajouter un terme
+          </Button>
+          <Button 
+            variant="outline"
+            className="gap-2"
+            onClick={() => setShowEnrichForm(true)}
+          >
+            <Download className="w-4 h-4" />
+            Enrichir le dictionnaire
+          </Button>
+        </div>
       </div>
 
       {/* Search and filters */}
@@ -323,6 +337,17 @@ export function DictionarySection() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Formulaires modaux */}
+      <AddDictionaryTermForm 
+        isOpen={showAddForm} 
+        onClose={() => setShowAddForm(false)} 
+      />
+      
+      <EnrichDictionaryForm 
+        isOpen={showEnrichForm} 
+        onClose={() => setShowEnrichForm(false)} 
+      />
     </div>
   );
 }

@@ -5,33 +5,28 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { TabFormField } from '@/components/common/TabFormField';
 import { BookOpen, Languages, FileText, Search } from 'lucide-react';
-import { AddLegalTextForm } from '@/components/forms/AddLegalTextForm';
-import { useGlobalActions } from '@/hooks/useGlobalActions';
+import { AddDictionaryTermForm } from '@/components/forms/AddDictionaryTermForm';
+import { EnrichDictionaryForm } from '@/components/forms/EnrichDictionaryForm';
 
 export function DictionariesSection() {
   const [showAddForm, setShowAddForm] = useState(false);
-  const actions = useGlobalActions();
+  const [showEnrichForm, setShowEnrichForm] = useState(false);
 
   const handleAdd = () => {
     setShowAddForm(true);
   };
 
   const handleEnrich = () => {
-    actions.handleImport(['.pdf', '.doc', '.docx', '.txt']);
+    setShowEnrichForm(true);
   };
 
-  const handleCloseForm = () => {
+  const handleCloseAddForm = () => {
     setShowAddForm(false);
   };
 
-  if (showAddForm) {
-    return (
-      <AddLegalTextForm 
-        isOpen={true} 
-        onClose={handleCloseForm} 
-      />
-    );
-  }
+  const handleCloseEnrichForm = () => {
+    setShowEnrichForm(false);
+  };
 
   return (
     <div className="space-y-6">
@@ -301,6 +296,17 @@ export function DictionariesSection() {
           </div>
         </TabsContent>
       </Tabs>
+
+      {/* Formulaires modaux */}
+      <AddDictionaryTermForm 
+        isOpen={showAddForm} 
+        onClose={handleCloseAddForm} 
+      />
+      
+      <EnrichDictionaryForm 
+        isOpen={showEnrichForm} 
+        onClose={handleCloseEnrichForm} 
+      />
     </div>
   );
 }
