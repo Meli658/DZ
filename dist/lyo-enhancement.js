@@ -3,11 +3,12 @@
     console.log('🚀 LYO Enhancement System - Initialisation...');
     
     function showNotification(title, message) {
-        const toast = document.createElement('div');
-        toast.className = 'fixed top-4 right-4 bg-green-500 text-white p-4 rounded shadow-lg z-50';
-        toast.innerHTML = `<strong>${title}</strong><br>${message}`;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
+        // Notifications désactivées - Modification branche LYO
+        // const toast = document.createElement('div');
+        // toast.className = 'fixed top-4 right-4 bg-green-500 text-white p-4 rounded shadow-lg z-50';
+        // toast.innerHTML = `<strong>${title}</strong><br>${message}`;
+        // document.body.appendChild(toast);
+        // setTimeout(() => toast.remove(), 3000);
     }
     
     function createModal(title, content) {
@@ -60,7 +61,7 @@
                         <p class="text-blue-600 mt-2">Action: "${text}"</p>
                     </div>
                 `);
-                showNotification('LYO Activé', `"${text}" est fonctionnel!`);
+                // showNotification('LYO Activé', `"${text}" est fonctionnel!`); // Désactivé
             });
         });
         
@@ -72,7 +73,7 @@
     setTimeout(() => {
         enhanceElements();
         setInterval(enhanceElements, 3000);
-        showNotification('LYO System', 'Tous les boutons sont maintenant fonctionnels!');
+        // showNotification('LYO System', 'Tous les boutons sont maintenant fonctionnels!'); // Désactivé
     }, 2000);
     
 })();

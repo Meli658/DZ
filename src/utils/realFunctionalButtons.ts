@@ -462,30 +462,33 @@ export class RealFunctionalSystem {
 
 
   private showToast(message: string) {
-    // Créer un toast de notification
-    const toast = document.createElement('div');
-    toast.className = 'fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-full';
-    toast.innerHTML = `
-      <div class="flex items-center gap-2">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-        </svg>
-        <span>${message}</span>
-      </div>
-    `;
+    // Toasts désactivés - Modification branche LYO
+    return;
     
-    document.body.appendChild(toast);
+    // // Créer un toast de notification
+    // const toast = document.createElement('div');
+    // toast.className = 'fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-full';
+    // toast.innerHTML = `
+    //   <div class="flex items-center gap-2">
+    //     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+    //       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+    //     </svg>
+    //     <span>${message}</span>
+    //   </div>
+    // `;
     
-    // Animation d'entrée
-    setTimeout(() => {
-      toast.classList.remove('translate-x-full');
-    }, 100);
+    // document.body.appendChild(toast);
     
-    // Suppression automatique
-    setTimeout(() => {
-      toast.classList.add('translate-x-full');
-      setTimeout(() => toast.remove(), 300);
-    }, 3000);
+    // // Animation d'entrée
+    // setTimeout(() => {
+    //   toast.classList.remove('translate-x-full');
+    // }, 100);
+    
+    // // Suppression automatique
+    // setTimeout(() => {
+    //   toast.classList.add('translate-x-full');
+    //   setTimeout(() => toast.remove(), 300);
+    // }, 3000);
   }
 
   // ACTIONS SIMPLES

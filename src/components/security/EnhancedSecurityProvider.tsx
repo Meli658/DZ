@@ -93,8 +93,8 @@ export function EnhancedSecurityProvider({ children }: { children: React.ReactNo
         </Alert>
       )}
       
-      {/* Security Status Indicator */}
-      <div className="fixed bottom-4 right-4 z-[60]">
+      {/* Security Status Indicator - Désactivé branche LYO */}
+      {/* <div className="fixed bottom-4 right-4 z-[60]">
         <div className="flex items-center gap-2 bg-white border rounded-lg px-3 py-2 shadow-sm">
           {securityState.isSecure ? (
             <CheckCircle className="w-4 h-4 text-green-600" />
@@ -105,7 +105,7 @@ export function EnhancedSecurityProvider({ children }: { children: React.ReactNo
             Sécurité: {securityState.level}
           </span>
         </div>
-      </div>
+      </div> */}
       
       {children}
     </SecurityContext.Provider>
